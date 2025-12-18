@@ -1,50 +1,79 @@
-        body { 
-            background-color: #c0c0c0; 
-            color: #000000;
-            font-family: "Times New Roman", Times, serif;
-            margin: 0;
-            padding: 50px 20px;
-        }
+body { 
+    background-color: #c0c0c0; 
+    color: #000000;
+    font-family: "Times New Roman", Times, serif;
+    margin: 0;
+    /* Reducimos el padding en pantallas pequeñas para no robar espacio */
+    padding: 20px 10px; 
+}
 
-        .window {
-            background-color: #c0c0c0;
-            border: 3px solid;
-            border-color: #ffffff #808080 #808080 #ffffff; 
-            box-shadow: 2px 2px 0px #000000;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-        }
+.window {
+    background-color: #c0c0c0;
+    border: 3px solid;
+    border-color: #ffffff #808080 #808080 #ffffff; 
+    box-shadow: 2px 2px 0px #000000;
+    
+    /* CAMBIO CLAVE: 95% del ancho en móvil, máximo 600px en PC */
+    width: 95%;
+    max-width: 600px; 
+    
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    /* Evita que el borde ensanche la caja más del 100% */
+    box-sizing: border-box; 
+}
 
-        h1 { color: #000080; font-size: 2.5em; margin-bottom: 5px; }
-        h2 { color: #000080; font-size: 1.5em; }
-        
-        hr { border: 0; height: 2px; background: #808080; border-bottom: 2px solid #ffffff; margin: 20px 0; }
+h1 { 
+    color: #000080; 
+    /* Tamaño fluido: se ajusta un poco según el ancho de pantalla */
+    font-size: clamp(1.5em, 8vw, 2.5em); 
+    margin-bottom: 5px; 
+}
 
-        .status { font-family: "Courier New", Courier, monospace; font-weight: bold; font-size: 1.2em; }
-        
-        .blink {
-            animation: blinker 1s linear infinite;
-            color: #ff0000;
-            font-weight: bold;
-        }
-        @keyframes blinker { 50% { opacity: 0; } }
+h2 { 
+    color: #000080; 
+    font-size: clamp(1.1em, 5vw, 1.5em); 
+}
 
-        .footer { font-size: 0.8em; font-family: Arial, Helvetica, sans-serif; }
+hr { border: 0; height: 2px; background: #808080; border-bottom: 2px solid #ffffff; margin: 20px 0; }
 
-        marquee {
-            background-color: #000080;
-            color: #ffffff;
-            padding: 5px;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            margin-top: 20px;
-            max-width: 600px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
+.status { 
+    font-family: "Courier New", Courier, monospace; 
+    font-weight: bold; 
+    font-size: clamp(0.9em, 4vw, 1.2em); 
+}
 
-        a { color: #0000ff; text-decoration: underline; }
-        a:visited { color: #800080; }
+.blink {
+    animation: blinker 1s linear infinite;
+    color: #ff0000;
+    font-weight: bold;
+}
+@keyframes blinker { 50% { opacity: 0; } }
+
+.footer { font-size: 0.8em; font-family: Arial, Helvetica, sans-serif; }
+
+marquee {
+    background-color: #000080;
+    color: #ffffff;
+    padding: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin-top: 20px;
+    
+    /* Ajuste para móvil */
+    width: 95%;
+    max-width: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a { color: #0000ff; text-decoration: underline; }
+a:visited { color: #800080; }
+
+/* Para que cualquier imagen o GIF que pongas no rompa el diseño */
+img {
+    max-width: 100%;
+    height: auto;
+}
